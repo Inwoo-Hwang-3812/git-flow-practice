@@ -1,18 +1,22 @@
 package app;
 
+import services.PrintNameService;
 import services.ReceiveNameService;
 
 public class App {
     private final ReceiveNameService receiveNameService;
+    private final PrintNameService printNameService;
 
-    public App(ReceiveNameService receiveNameService) {
+    public App(ReceiveNameService receiveNameService,
+               PrintNameService printNameService) {
         this.receiveNameService = receiveNameService;
+        this.printNameService = printNameService;
     }
 
     public static void main(String[] args) {
         ReceiveNameService receiveNameService = new ReceiveNameService();
-
-        App app = new App(receiveNameService);
+        PrintNameService printNameService = new PrintNameService();
+        App app = new App(receiveNameService, printNameService);
 
         System.out.println(app.getGreeting());
 
@@ -25,6 +29,8 @@ public class App {
 
     public String run() {
         String name = receiveNameService.getName();
+
+        printNameService.printName(name);
 
         return name;
     }
