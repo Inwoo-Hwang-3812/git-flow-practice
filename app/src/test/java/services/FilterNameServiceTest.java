@@ -28,7 +28,7 @@ class FilterNameServiceTest {
         }
 
         @Test
-        void validCaseWithUpperAndLowerCase() {
+        void validCaseWithUpperAndLowerCaseAndWhiteSpace() {
             assertDoesNotThrow(() -> filterNameService.filterName("Hwang Inwoo"));
         }
 
