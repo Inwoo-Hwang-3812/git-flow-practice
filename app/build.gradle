@@ -14,11 +14,27 @@ dependencies {
 
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+    // Use AssertJ for testing.
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+
+    // Use Mockito for testing.
+    testImplementation 'org.mockito:mockito-core:2.1.0'
 }
 
 application {
     // Define the main class for the application.
     mainClass = 'app.App'
+}
+
+run {
+    standardInput = System.in
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'app.App'
+    }
 }
 
 tasks.named('test') {
