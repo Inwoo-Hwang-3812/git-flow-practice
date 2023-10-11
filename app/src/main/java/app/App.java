@@ -14,13 +14,17 @@ public class App {
     }
 
     public static void main(String[] args) {
-        ReceiveNameService receiveNameService = new ReceiveNameService();
-        PrintNameService printNameService = new PrintNameService();
-        App app = new App(receiveNameService, printNameService);
+        try {
+            ReceiveNameService receiveNameService = new ReceiveNameService();
+            PrintNameService printNameService = new PrintNameService();
+            App app = new App(receiveNameService, printNameService);
 
-        System.out.println(app.getGreeting());
+            System.out.println(app.getGreeting());
 
-        app.run();
+            app.run();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     public String getGreeting() {
